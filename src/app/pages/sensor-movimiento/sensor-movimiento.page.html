@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>UCEVA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <div (click)="mostMes(i)" *ngFor="let p of mes; let i = index">
+      <ion-item detail>  
+        <ion-label> {{p.nombre}}</ion-label>
+      </ion-item>
+
+      <ion-list>
+        <div (click)="showModal(q)" [hidden]="mostrarmes[i]" *ngFor="let q of p.semanas">
+          <ion-item>
+            <h5>semana {{q.semana}} </h5>
+          </ion-item>
+        </div>
+      </ion-list>
+    </div>
+  </ion-list>
+
+</ion-content>

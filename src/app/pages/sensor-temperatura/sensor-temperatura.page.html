@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>UCEVA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div>  <!-- A la hora de añadir graficas el contenido debe ir dentro de una etiqueta <div> -->
+  
+  <ion-card >
+    
+      <ion-card-header>
+        <!-- Este bototn nos abrira la ventana de dialog modal -->
+        <ion-button mat-button color="warning" (click)="showModal()">Temperatura</ion-button>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <canvas id='lineCanvas'></canvas>  <!-- Aqui se hace el llamado de la grafica -->
+      </ion-card-content>
+
+  </ion-card>
+
+</div>
+
+</ion-content>

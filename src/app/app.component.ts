@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -9,7 +8,36 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  public selectedIndex = 0;
+  public appPages = [
+    {
+      title: 'Home',
+      url: 'Home',
+      icon: 'Home'
+    },
+    {
+      title: 'Sensor De Luz',
+      url: 'Luz',
+      icon: 'sunny'
+    },
+    {
+      title: 'Sensor De Movimiento',
+      url: 'Movimiento',
+      icon: 'walk'
+    },
+    {
+      title: 'Sensor De Temperatura',
+      url: 'Temperatura',
+      icon: 'thermometer'
+    },
+    {
+      title: 'Reportes',
+      url: 'Reportes',
+      icon: 'trending-up'
+    }
+  ];
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -19,9 +47,15 @@ export class AppComponent {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
+      this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      this.splashScreen.show();
     });
+  }
+  
+  
+
+  ngOnInit() {
+   
   }
 }

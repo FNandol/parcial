@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>UCEVA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <button (click)="boton()">Actualizar</button>
+  <div id="gauge">
+    <rg-gauge-chart
+    [canvasWidth]="canvasWidth"
+    [needleValue]="needleValue"
+    [centralLabel]="centralLabel"
+    [options]="options"
+    [name]="name"
+    [bottomLabel]="bottomLabel">
+  </rg-gauge-chart></div>
+  
+</ion-content>
