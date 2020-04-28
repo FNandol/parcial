@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SensorLuzPage } from './sensor-luz.page';
+
+import { LugaresPage } from './lugares.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: SensorLuzPage
+    component: LugaresPage
   }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes),
-    
-  ],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SensorLuzPageRoutingModule {}
+export class LugaresPageRoutingModule {}

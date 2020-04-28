@@ -11,29 +11,25 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
+    
     {
       title: 'Home',
       url: 'Home',
-      icon: 'Home'
-    },
-    {
-      title: 'Sensor De Luz',
-      url: 'Luz',
       icon: 'sunny'
     },
     {
-      title: 'Sensor De Movimiento',
-      url: 'Movimiento',
+      title: 'Autoevaluacion',
+      url: 'Autoevaluacion',
       icon: 'walk'
-    },
-    {
-      title: 'Sensor De Temperatura',
-      url: 'Temperatura',
-      icon: 'thermometer'
     },
     {
       title: 'Reportes',
       url: 'Reportes',
+      icon: 'thermometer'
+    },
+    {
+      title: 'Lugares',
+      url: 'Lugares',
       icon: 'trending-up'
     }
   ];

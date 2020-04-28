@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NavController, AlertController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-reportes',
-  templateUrl: './reportes.page.html',
-  styleUrls: ['./reportes.page.scss'],
+  selector: 'app-reports',
+  templateUrl: './reports.page.html',
+  styleUrls: ['./reports.page.scss'],
 })
-export class ReportesPage {
+export class ReportsPage  {
+
   mostrarForm=true;
   myForm: FormGroup;
   reportes: report[]=[];
@@ -64,7 +65,4 @@ export class ReportesPage {
       reporte: ['', Validators.required]
     });
   }
-
-
-
 }

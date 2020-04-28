@@ -7,13 +7,9 @@ const routes: Routes = [
     redirectTo: 'Home',
     pathMatch: 'full'
   },
-  // {
-  //   path: 'folder/:id',
-  //   loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  // },
   {
-    path: 'Luz',
-    loadChildren: () => import('./pages/sensor-luz/sensor-luz.module').then( m => m.SensorLuzPageModule)
+    path: 'Perfil',
+    loadChildren: () => import('./pages/Perfil/perfil.module').then( m => m.PerfilPageModule)
   },
   {
     path: 'Home',
@@ -26,11 +22,22 @@ const routes: Routes = [
   {
     path: 'Temperatura',
     loadChildren: () => import('./pages/sensor-temperatura/sensor-temperatura.module').then( m => m.SensorTemperaturaPageModule)
+  },   {
+    path: 'Reportes',
+    loadChildren: () => import('./pages/Reportes/reports.module').then( m => m.ReportsPageModule)
   },
   {
-    path: 'Reportes',
-    loadChildren: () => import('./pages/reportes/reportes.module').then( m => m.ReportesPageModule)
-  }
+    path: 'Autoevaluacion',
+    loadChildren: () => import('./pages/autoevaluacion/autoevaluacion.module').then( m => m.AutoevaluacionPageModule)
+  },
+  {
+    path: 'Lugares',
+    loadChildren: () => import('./pages/lugares/lugares.module').then( m => m.LugaresPageModule)
+  },
+
+
+
+  
 ];
 
 @NgModule({

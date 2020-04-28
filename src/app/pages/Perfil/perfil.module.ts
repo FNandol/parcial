@@ -4,18 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 import { GaugeChartModule } from 'angular-gauge-chart';
-import { SensorLuzPageRoutingModule } from './sensor-luz-routing.module';
+import { PerfilPageRoutingModule } from './perfil-routing.module';
 
-import { SensorLuzPage } from './sensor-luz.page';
+import { PerfilPage } from './perfil.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SensorLuzPageRoutingModule,
+    PerfilPageRoutingModule,
     GaugeChartModule //gauge
   ],
-  declarations: [SensorLuzPage]
+  declarations: [PerfilPage]
 })
-export class SensorLuzPageModule {}
+export class PerfilPageModule {}
