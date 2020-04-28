@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'Login', pathMatch: 'full' },
   {
-    path: '',
-    redirectTo: 'Home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'Perfil',
-    loadChildren: () => import('./pages/Perfil/perfil.module').then( m => m.PerfilPageModule)
+    path: 'Login',
+    loadChildren: () => import('./components/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'Home',
@@ -33,10 +30,8 @@ const routes: Routes = [
   {
     path: 'Lugares',
     loadChildren: () => import('./pages/lugares/lugares.module').then( m => m.LugaresPageModule)
-  },
-
-
-
+  }
+  
   
 ];
 

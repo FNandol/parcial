@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovimientoService } from 'src/app/services/movimiento.service';
+import {  AuthService } from 'src/app/services/auth.service';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from './modal/modal.page';
 
@@ -13,7 +13,7 @@ export class SensorMovimientoPage implements OnInit {
 	mes: mes[];
 	mostrarmes: boolean[] = [];
 	constructor(
-		private _listar: MovimientoService,
+		private _listar: AuthService,
 		private modalCtrl: ModalController
 	) {
 		this.listarMeses();
