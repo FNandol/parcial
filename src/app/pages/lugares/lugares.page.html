@@ -9,5 +9,17 @@
 
 <ion-content>
  
+  <ion-buttons slot="primary">
+    <ion-button > <!-- (click)="clickedSearch()" -->
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-searchbar placeholder="Search Favorites"></ion-searchbar>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="scan-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   
 </ion-content>
