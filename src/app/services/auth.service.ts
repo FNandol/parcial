@@ -15,6 +15,7 @@ export class AuthService {
     private _google:GooglePlus,
     private _AFAuth: AngularFireAuth
     ) { 
+      console.log('hola');
   }
 
   listarMeses(): Observable<meses> {
@@ -22,16 +23,11 @@ export class AuthService {
    return this._http.get<meses>(url);
  }
 loginGoogle(){
-  alert('entro');
+  
   return this._google.login({}).then( result =>{
     const user_data_google =result;
-    alert(result);
-    alert('entro aqui');
-    alert(user_data_google )
    return this._AFAuth.signInWithCredential(auth.GoogleAuthProvider.credential(null, user_data_google.accesToken))
-  }
- 
-  ) 
+  }) 
 }
 
 }

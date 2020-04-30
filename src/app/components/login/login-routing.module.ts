@@ -6,12 +6,12 @@ import { LoginPage } from './login.page';
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage}
-  // },
-  // {
-  //   path: 'Menu',
-  //   loadChildren: () => import('../menu/menu.module').then( m => m.MenuPageModule)
-  // }
+    component: LoginPage
+   },
+   {
+     path: 'Home',
+     loadChildren: () => import('../../pages/home/home.module').then( m => m.HomePageModule)
+  }
 ];
 
 @NgModule({

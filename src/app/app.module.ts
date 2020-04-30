@@ -16,6 +16,8 @@ import { AngularFireModule} from '@angular/fire';
 import { firebaseConfig} from '../environments/environment';
 import { GooglePlus} from '@ionic-native/google-plus/ngx';
 
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -30,6 +32,7 @@ import { GooglePlus} from '@ionic-native/google-plus/ngx';
     
   ],
   providers: [
+    NativeStorage,
     GooglePlus,
     StatusBar,
     SplashScreen,

@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { LoginPageRoutingModule } from './login-routing.module';
-
+import { AngularFireModule} from '@angular/fire';
+import { firebaseConfig} from '../../../environments/environment';
 import { LoginPage } from './login.page';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { LoginPage } from './login.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule
+    LoginPageRoutingModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   declarations: [LoginPage]
 })
