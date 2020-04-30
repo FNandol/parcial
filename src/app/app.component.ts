@@ -10,28 +10,28 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
-  showMenu=true;
+  showMenu=false;
   public appPages = [
     
     {
       title: 'Home',
       url: 'Home',
-      icon: 'sunny'
+      icon: 'home'
     },
     {
       title: 'Autoevaluacion',
       url: 'Autoevaluacion',
-      icon: 'walk'
+      icon: 'reader'
     },
     {
       title: 'Reportes',
       url: 'Reportes',
-      icon: 'thermometer'
+      icon: 'clipboard'
     },
     {
       title: 'Lugares',
       url: 'Lugares',
-      icon: 'trending-up'
+      icon: 'map'
     }
   ];
 

@@ -1,145 +1,142 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary"> 
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>AUTOEVALUACION</ion-title>
+    <ion-title>Auto</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
 
-  <form>
+  <form [formGroup]="myForm"> 
     <ion-list>
       <ion-list-header>
-        <ion-label>Al llenar este formulario, usted va a conocer la
-          pobrobabilidad de tener o no COVID-19</ion-label>
-      </ion-list-header>
+        <ion-label color="danger" ><strong>Al llenar este formulario, usted va a conocer
+           	la pobrobabilidad de tener o no COVID-19</strong></ion-label>
+      </ion-list-header><br>
 
-      <!----------------------------------------------------------------------------->
-      <ion-radio-group value="no">
+ <!----------------------------------------------------------------------------->
+      <ion-radio-group  formControlName="p1" llow-empty-selection="true" (ionChange)="Ap1($event)">
         <p>¿Ha salido de su casa en los últimos 14 dias?</p>
         <ion-item>
           <ion-label>Si</ion-label>
-          <ion-radio slot="start" value="si"></ion-radio>
+          <ion-radio slot="start" value="si" ></ion-radio>
         </ion-item>
         <ion-item>
           <ion-label>No</ion-label>
           <ion-radio slot="start" value="no"></ion-radio>
         </ion-item>
+      </ion-radio-group>
+
+     <ion-item>
+        <ion-label>¿Donde?</ion-label>
+        <ion-select  disabled="{{p1habilitar}}" formControlName="p1salida" interface="action-sheet" placeholder="Escoja uno">
+          <ion-select-option value="Portales del Río">Portales del Río</ion-select-option>
+          <ion-select-option value="Bosque">Bosque</ion-select-option>
+          <ion-select-option value="Bosque">Victoria</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>¿Hace cuento?</ion-label>
+        <ion-datetime  disabled="{{p1habilitar}}" formControlName="p1fecha" value="2020-03-01"></ion-datetime>
+      </ion-item><br>
+
+<!----------------------------------------------------------------------------->
+        <ion-radio-group formControlName="p2" llow-empty-selection="true" (ionChange)="Ap2($event)">
+          <p>¿He tenido contacto con una persona que haya tenido síntomas gripales
+            y que haya venido del extranjero?</p>
+          <ion-item>
+            <ion-label>Si</ion-label>
+            <ion-radio slot="start" value="si"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>No</ion-label>
+            <ion-radio slot="start" value="no"></ion-radio>
+          </ion-item>
+          </ion-radio-group>
+
+          <ion-item>
+            <ion-label>¿De qué país viene la persona?</ion-label>
+            <ion-select disabled="{{p2habilitar}}"formControlName="p2extrajero" interface="action-sheet" placeholder="Escoja uno">
+              <ion-select-option value="España">España</ion-select-option>
+              <ion-select-option value="Chile">Chile</ion-select-option>
+              <ion-select-option value="Ecuador">Ecuador</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Fecha de contacto</ion-label>
+            <ion-datetime disabled="{{p2habilitar}}" formControlName="p2fecha" value="2020-03-01"></ion-datetime>
+          </ion-item><br>
+
+<!----------------------------------------------------------------------------------------->
+        <ion-radio-group formControlName="p3" llow-empty-selection="true" (ionChange)="Ap3($event)">
+          <p>¿Ha tenido contacto directo con personas diagnosticada con COVID-19?</p>
+          <ion-item>
+            <ion-label>Si</ion-label>
+            <ion-radio slot="start" value="si"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>No</ion-label>
+            <ion-radio slot="start" value="no"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+
+          <ion-item>
+            <ion-label position="floating"></ion-label>
+            <ion-input disabled="{{p3habilitar}}" formControlName="p3persona" type="text" placeholder="Nombre y apellido de la persona"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Fecha de contacto</ion-label>
+            <ion-datetime disabled="{{p3habilitar}}" formControlName="p3fecha" value="2020-03-01" ></ion-datetime>
+          </ion-item><br>
+
+<!--------------------------------------------------------------------------->
+        <ion-radio-group  formControlName="p4" llow-empty-selection="true" (ionChange)="Ap4($event)">
+          <p>¿Usted ha presentado  algún síntomas cómo: tos, fiebre mayor a 38 grados, dolor de garganta
+            malestar para respirar, malestar general ?</p>
+          <ion-item>
+            <ion-label>Si</ion-label>
+            <ion-radio slot="start" value="si" ></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>No</ion-label>
+            <ion-radio slot="start" value="no"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
 
         <ion-item>
-          <ion-label>¿Donde?</ion-label>
-          <ion-select interface="action-sheet" placeholder="Escoja uno">
-            <ion-select-option value="red">Portales del Río</ion-select-option>
-            <ion-select-option value="purple">Bosque</ion-select-option>
-            <ion-select-option value="oi">Victoria</ion-select-option>
+          <ion-label>¿Cuales?</ion-label>
+          <ion-select disabled="{{p4habilitar}}" multiple="true"  cancelText="Cancelar" okText="Aceptar"  formControlName="p4sintomas" interface="action-sheet" placeholder="Seleccione">
+            <ion-select-option value="Tos">Tos</ion-select-option>
+            <ion-select-option value="Fiebre mayor a 38 grados">Fiebre mayor a 38 grados</ion-select-option>
+            <ion-select-option value="Malestar para respirar">Malestar para respirar</ion-select-option>
+            <ion-select-option value="Malestar general">Malestar general</ion-select-option>
           </ion-select>
         </ion-item>
 
         <ion-item>
-          <ion-label>¿Hace cuento?</ion-label>
-          <ion-datetime value="2020-03-01" placeholder="Select Date"></ion-datetime>
-        </ion-item>
-      </ion-radio-group><br>
-
-      <!----------------------------------------------------------------------------->
-      <ion-radio-group value="no">
-        <p>¿He tenido contacto con una persona que haya tenido síntomas gripales
-          y que haya venido del extranjero?</p>
-        <ion-item>
-          <ion-label>Si</ion-label>
-          <ion-radio slot="start" value="si"></ion-radio>
+          <ion-label position="stacked"></ion-label>
+          <ion-input disabled="{{p4habilitar}}" formControlName="p4nombre" type="text" placeholder="Nombre"></ion-input>
+          <ion-input disabled="{{p4habilitar}}" formControlName="p4apellido" type="text" placeholder="apellido"></ion-input>
+          <ion-input disabled="{{p4habilitar}}" formControlName="p4edad" type="number" placeholder="Edad"></ion-input>
+          <ion-input disabled="{{p4habilitar}}" formControlName="p4documento"  type="number" placeholder="N° de Documento"></ion-input>
+          <ion-input disabled="{{p4habilitar}}" formControlName="p4nacionalidad" type="text" placeholder="Nacionalidad"></ion-input>
+          <ion-input disabled="{{p4habilitar}}" formControlName="p4telefono" type="tel" placeholder="Teléfono"></ion-input>
+          <ion-input disabled="{{p4habilitar}}" formControlName="p4direccion" type="text" placeholder="Dirección"></ion-input>
+          <ion-input disabled="{{p4habilitar}}" formControlName="p4eps" type="text" placeholder="EPS"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>No</ion-label>
-          <ion-radio slot="start" value="no"></ion-radio>
+          <ion-label>Fecha de inicio de los síntomas</ion-label>
+          <ion-datetime disabled="{{p4habilitar}}" formControlName="p4fecha" value="2020-03-01" ></ion-datetime>
         </ion-item>
-
-        <ion-item>
-          <ion-label>¿De qué país viene la persona?</ion-label>
-          <ion-select interface="action-sheet" placeholder="Escoja uno">
-            <ion-select-option value="red">Portales del Río</ion-select-option>
-            <ion-select-option value="purple">Bosque</ion-select-option>
-            <ion-select-option value="oi">Victoria</ion-select-option>
-          </ion-select>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Fecha de contacto</ion-label>
-          <ion-datetime value="2020-03-01" placeholder="Select Date"></ion-datetime>
-        </ion-item>
-      </ion-radio-group><br>
-
-      <!----------------------------------------------------------------------------->
-      <ion-radio-group value="no">
-        <p>¿Ha tenido contacto directo con personas diagnosticada con COVID-19?</p>
-        <ion-item>
-          <ion-label>Si</ion-label>
-          <ion-radio slot="start" value="si"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>No</ion-label>
-          <ion-radio slot="start" value="no"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-          <ion-label position="floating"></ion-label>
-          <ion-input placeholder="Nombre y apellido de la persona"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Fecha de contacto</ion-label>
-          <ion-datetime value="2020-03-01" placeholder="Select Date"></ion-datetime>
-        </ion-item>
-      </ion-radio-group><br>
-
-      <!----------------------------------------------------------------------------->
-      <p>¿Usted presenta uno o más de estos síntomas?</p>
-      <ion-item>
-        <ion-checkbox slot="start"></ion-checkbox>
-        <ion-label>Tos</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-checkbox slot="start"></ion-checkbox>
-        <ion-label>Fiebre mayor a 38 grados</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-checkbox slot="start"></ion-checkbox>
-        <ion-label>Dolor de graganta</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-checkbox slot="start"></ion-checkbox>
-        <ion-label>Malestar para respirar</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-checkbox slot="start"></ion-checkbox>
-        <ion-label>Malestar general</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-checkbox slot="start"></ion-checkbox>
-        <ion-label>Ninguno</ion-label>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="stacked"></ion-label>
-        <ion-input placeholder="Nombre"></ion-input>
-        <ion-input placeholder="apellido"></ion-input>
-        <ion-input placeholder="Edad"></ion-input>
-        <ion-input placeholder="N° de Documento"></ion-input>
-        <ion-input placeholder="Nacionaalidad"></ion-input>
-        <ion-input placeholder="Teléfono"></ion-input>
-        <ion-input placeholder="Dirección"></ion-input>
-        <ion-input placeholder="EPS"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Fecha de inicio de los síntomas</ion-label>
-        <ion-datetime value="2020-03-01" placeholder="Select Date"></ion-datetime>
-      </ion-item>
     </ion-list>
 
     <div padding>
-      <ion-button expand="block" type="submit" (click)= "presentConfirm()">Envíar evaluación</ion-button>
+      <ion-button expand="full" type="submit" (click)= "presentConfirm()">Envíar evaluación</ion-button>
     </div><br>
 
   </form>

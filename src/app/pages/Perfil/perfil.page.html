@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -17,6 +17,11 @@
   <div id="logo">
     <img src="assets/img/Uceva_Vertical.png" >
   </div>
-  <br>
-  <br>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="qr-code"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
 </ion-content>

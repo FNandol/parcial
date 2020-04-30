@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -8,18 +8,40 @@
 </ion-header>
 
 <ion-content>
- 
+
   <ion-buttons slot="primary">
-    <ion-button > <!-- (click)="clickedSearch()" -->
+    <ion-button>
+      <!-- (click)="clickedSearch()" -->
       <ion-icon slot="icon-only" name="search"></ion-icon>
     </ion-button>
   </ion-buttons>
   <ion-searchbar placeholder="Search Favorites"></ion-searchbar>
 
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Lugares</th>
+        <th scope="col">Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container>
+        <tr>
+          <td>
+            <h5>{{evaluacion.p1salida}}</h5>
+          </td>
+          <td>
+            <h5>{{evaluacion.p1fecha}}</h5>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
-      <ion-icon name="scan-outline"></ion-icon>
+      <ion-icon name="qr-code"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  
+
 </ion-content>
