@@ -9,17 +9,21 @@ import {ReportInfoService} from 'src/app/services/report-info.service';
   styleUrls: ['./reports.page.scss'],
 })
 export class ReportsPage implements OnInit {
-  evaluacion: any;
-  
+  evaluaciones: any[]=[];
+  eva:  any;
+  n: any;
+
   constructor(private reportInfoService: ReportInfoService) { }
 
   ngOnInit() {
     this.reportInfoService.$getResportesEvaluacion.subscribe( data => {
       //console.log(data)
-      this.evaluacion = data;
+    this.eva = data;
+    this.evaluaciones.push(this.eva);
     }).unsubscribe();
 
-    console.log(this.evaluacion);
+    this.n = this.evaluaciones.length;
+    //console.log(this.evaluacion);
   }
 
   
