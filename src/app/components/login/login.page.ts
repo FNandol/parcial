@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Host } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from "@angular/router";
 import { AngularFireAuth } from '@angular/fire/auth'
@@ -7,6 +7,7 @@ import { Platform } from '@ionic/angular';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { AppComponent } from 'src/app/app.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -99,7 +100,7 @@ export class LoginPage implements OnInit {
         })
           .then(() => {
             alert('loginandroid2')
-            this.router.navigate(["/Home"]);
+            this.router.navigate(["../Home"]);
           }, (error) => {
             alert(error +" 1")
             console.log(error);
@@ -107,12 +108,15 @@ export class LoginPage implements OnInit {
         loading.dismiss();
       }, err => {
         alert(err+" 2")
+        this.router.navigate(["../Home"]);
+      this._Auth.send(false);
         console.log(err);
         if (!this.platform.is('cordova')) {
           this.presentAlert();
         }
         loading.dismiss();
       })
+      
   }
 
 
@@ -137,7 +141,8 @@ export class LoginPage implements OnInit {
     this.name = user.displayName;
     this.email = user.email;
     alert(user)
-    this.router.navigate(['../Home']);
+    this.router.navigate(["../Home"]);
+    this._Auth.send(false);
   }
   
 

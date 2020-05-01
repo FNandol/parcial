@@ -8,8 +8,10 @@ import { LoginPageRoutingModule } from './login-routing.module';
 import { AngularFireModule} from '@angular/fire';
 import { firebaseConfig} from '../../../environments/environment';
 import { LoginPage } from './login.page';
+import { AppComponent } from 'src/app/app.component';
 
 @NgModule({
+  
   imports: [
     CommonModule,
     FormsModule,
