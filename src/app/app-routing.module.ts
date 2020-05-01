@@ -19,13 +19,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'Movimiento',
-    loadChildren: () => import('./pages/sensor-movimiento/sensor-movimiento.module').then( m => m.SensorMovimientoPageModule)
-  },
-  {
-    path: 'Temperatura',
-    loadChildren: () => import('./pages/sensor-temperatura/sensor-temperatura.module').then( m => m.SensorTemperaturaPageModule)
-  },   {
     path: 'Reportes',
     loadChildren: () => import('./pages/Reportes/reports.module').then( m => m.ReportsPageModule)
   },

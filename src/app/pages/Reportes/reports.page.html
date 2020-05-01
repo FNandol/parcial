@@ -1,83 +1,48 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>UCEVA</ion-title>
+    <ion-title>Reporte de Evaluaciones</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
+
   <ion-buttons slot="primary">
-    <ion-button > <!-- (click)="clickedSearch()" -->
+    <ion-button>
+      <!-- (click)="clickedSearch()" -->
       <ion-icon slot="icon-only" name="search"></ion-icon>
     </ion-button>
   </ion-buttons>
   <ion-searchbar placeholder="Search Favorites"></ion-searchbar>
- 
-  <div [hidden]="!mostrarForm" >
-    <table class="table table-bordered">
-      <thead>
+
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Avaluación N°</th>
+        <th scope="col">Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of evaluaciones">
         <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col">Apellido</th>
-          <th scope="col">Correo</th>
-          <th scope="col">Reporte</th>
+          <td>
+            <h5>{{n}}</h5>
+          </td>
+          <td>
+            <h5>{{item.fechaActual}}</h5>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        <ng-container *ngFor="let item of reportes">
-          <tr>
-            <td>
-              <h5>{{item.name}}</h5>
-            </td>
-            <td>
-              <h5>{{item.lastName}}</h5>
-            </td>
-            <td>
-              <h5>{{item.email}}</h5>
-            </td>
-            <td>
-              <h5>{{item.reporte}}</h5>
-            </td>
-          </tr>
-        </ng-container>
-      </tbody>
-    </table>
-  </div>
-  <form [hidden]="mostrarForm" [formGroup]="myForm" (ngSubmit)="saveData()">
-    <ion-list>
-      <ion-item>
-        <ion-icon name="person" item-start></ion-icon>
-        <ion-label stacked>Nombres:</ion-label>
-        <ion-input formControlName="name" type="text" placeholder="nombre"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="person" item-start></ion-icon>
-        <ion-label stacked>Apellidos:</ion-label>
-        <ion-input formControlName="lastName" type="text" placeholder="Apellidos"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="mail" item-start></ion-icon>
-        <ion-label stacked>Correo electronico:</ion-label>
-        <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="clipboard" item-start></ion-icon>
-        <ion-label stacked>Reporte:</ion-label>
-        <ion-input formControlName="reporte" type="text" placeholder="Reporte"></ion-input>
-      </ion-item>
-      
-     
-    </ion-list>
-    <div padding>
-      <button ion-button block type="submit" [disabled]="!myForm.valid">Guardar</button>
-    </div>
-  </form>
+      </ng-container>
+    </tbody>
+  </table>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
-      <ion-icon name="scan-outline"></ion-icon>
+      <ion-icon name="qr-code"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+  
+</ion-content>

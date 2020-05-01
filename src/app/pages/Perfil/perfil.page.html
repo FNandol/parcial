@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -13,10 +13,15 @@
     <img src="assets/img/avatar.jpeg" >
   </div>
   <br>
-  <h1>Estado</h1>
+  <ion-label color= "success" ><h1>Estado</h1></ion-label>
   <div id="logo">
-    <img src="assets/img/Uceva_Vertical.png" >
+    <img src="assets/img/sign-check-icon_34365.png" >
   </div>
-  <br>
-  <br>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="qr-code"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
 </ion-content>

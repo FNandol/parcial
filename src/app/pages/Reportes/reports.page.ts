@@ -1,68 +1,30 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NavController, AlertController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+
+import {ReportInfoService} from 'src/app/services/report-info.service';
+
 
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.page.html',
   styleUrls: ['./reports.page.scss'],
 })
-export class ReportsPage  {
+export class ReportsPage implements OnInit {
+  evaluaciones: any[]=[];
+  eva:  any;
+  n: any;
 
-  mostrarForm=true;
-  myForm: FormGroup;
-  reportes: report[]=[];
-  nombre=   "";
-  apellido= "";
-  correo=   "";
-  reporte=  "";
-  rep:report;
-  constructor(
-    public navCtrl: NavController,
-    public formBuilder: FormBuilder,
-    private alertCtrl: AlertController
-  ) {
-    this.myForm = this.createMyForm();
+  constructor(private reportInfoService: ReportInfoService) { }
+
+  ngOnInit() {
+    this.reportInfoService.$getResportesEvaluacion.subscribe( data => {
+      //console.log(data)
+    this.eva = data;
+    this.evaluaciones.push(this.eva);
+    }).unsubscribe();
+
+    this.n = this.evaluaciones.length;
+    //console.log(this.evaluacion);
   }
 
-  hide(){
-    this.mostrarForm=!this.mostrarForm;
-  }
   
-  saveData(){
-    console.log(this.myForm.value);
-    this.rep=this.myForm.value
-    this.reportes.push(this.rep);
-    this.mostrarForm=!this.mostrarForm;
-    this.myForm.reset();
-    this.presentConfirm();
-  }
-
-  async presentConfirm() {
-      const alert = await  this.alertCtrl.create({
-        header: 'Atención',
-        message: 'Se ha guardado con exito' ,
-        buttons: [
-          {
-            text: 'Aceptar',
-            role: 'cancel',
-            handler: () => {
-              // console.log('Cancel clicked'); aqui se coloca lo que va a hacer el boton al presionarse
-            }
-          }
-        ]
-      });
-      alert.present();
-  }
-  
-  private createMyForm(){
-    return this.formBuilder.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [
-        Validators.required, Validators.email
-      ]],
-      reporte: ['', Validators.required]
-    });
-  }
 }
