@@ -54,36 +54,20 @@ export class LoginPage implements OnInit {
     
     if (this.platform.is('cordova')) {
       this.googleLogin();
-      alert('loginandroid')
+      //alert('loginandroid')
     } else {
       this.loginGoogleWeb();
-      alert('loginweb')
+      //alert('loginweb')
     }
     console.log('hola');
     
   }
 
-  // async loginGoogleAndroid() {
-  //   alert('entro')
-  //   const res = await this.googlePlus.login({
-  //     'webClientId': "647803975799-dm61asd45tlnhkm4a0bfe5esf1fg168l.apps.googleusercontent.com" ,
-  //     'offline': true
-  //   });
-  //   alert('entro1')
-  //   const resConfirmed = await this.afAuth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken));
-  //   const 
-  //   user = resConfirmed.user;
-  //   this.picture = user.photoURL;
-  //   this.name = user.displayName;
-  //   this.email = user.email;
-  //   alert(user+" hola")
-  //   this.router.navigate(['../Home']);
-  // }
   async googleLogin() {
     const loading = await this.loadingController.create({
       message: 'Please wait...'
     });
-    alert('loginandroid1.3')
+    //alert('loginandroid1.3')
     this.presentLoading(loading);
     this.googlePlus.login({
       'scopes': '', // optional - space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
@@ -140,7 +124,7 @@ export class LoginPage implements OnInit {
     this.picture = user.photoURL;
     this.name = user.displayName;
     this.email = user.email;
-    alert(user)
+    //alert(user)
     this.router.navigate(["../Home"]);
     this._Auth.send(false);
   }

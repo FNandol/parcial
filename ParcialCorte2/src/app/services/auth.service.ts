@@ -23,10 +23,6 @@ export class AuthService {
       console.log('hola');
   }
 
-  listarMeses(): Observable<meses> {
-   const url=' http://www.mocky.io/v2/5e8e971b300000740064bc4f ';
-   return this._http.get<meses>(url);
- }
 loginGoogle(){
   
   return this._google.login({}).then( result =>{
