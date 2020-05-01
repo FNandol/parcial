@@ -103,7 +103,6 @@ export class LoginPage implements OnInit {
       
   }
 
-
   async presentAlert() {
     const alert = await this.alertController.create({
       message: 'Cordova no está disponible en escritorio. Por favor, intente esto en un dispositivo movil o en un emulador.',
