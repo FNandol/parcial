@@ -1,4 +1,7 @@
-# Taller Ionic
+# Taller de Ionic Android
+
+App movil sobre la evaluación del COVID-19
+
 
 ### Integrantes
 - Luis Fernando Erazo Acuña      230151002
